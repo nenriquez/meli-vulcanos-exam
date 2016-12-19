@@ -24,8 +24,8 @@ class CoordinatesTest(unittest.TestCase):
         polar.plus_angle(45)
         self.assertEqual(polar.degrees, 45)
         self.assertEqual(polar.radians, math.pi / 4)
-        self.assertEqual(polar.to_cartesian().x, 100)
-        self.assertEqual(polar.to_cartesian().y, 100)
+        self.assertGreaterEqual(polar.to_cartesian().x, 70.71)
+        self.assertGreaterEqual(polar.to_cartesian().y, 70.71)
 
         polar.plus_angle(45)
         self.assertEqual(polar.degrees, 90)
@@ -65,6 +65,7 @@ class CoordinatesTest(unittest.TestCase):
         self.assertTrue(cart.is_in_triangle(Cartesian(-1, -1), Cartesian(0, 1), Cartesian(1, -1)))
         self.assertFalse(cart.is_in_triangle(Cartesian(-1, -1), Cartesian(0, -1), Cartesian(1, -1)))
 
+
 class TestRect(unittest.TestCase):
 
     def test_creation(self):
@@ -89,8 +90,3 @@ class TestRect(unittest.TestCase):
         self.assertTrue(rect.contain(Cartesian(4, 3)))
         self.assertTrue(rect.contain(Cartesian(0, -1)))
         self.assertFalse(rect.contain(Cartesian(0, 0)))
-
-
-    def test_pp(self):
-        rect = Rect(Cartesian(0, 1000), Cartesian(500, 500))
-        print rect

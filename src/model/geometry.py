@@ -82,10 +82,9 @@ class Polar:
         self._radio = value
 
     def to_cartesian(self):
-        # Im using round function without precision to avoid float point precision issues
-        # without it cos(270) != 1
-        x = self._radio * round(math.cos(self.radians))
-        y = self._radio * round(math.sin(self.radians))
+        # precision problem, cos(pi/2) != 0
+        x = self._radio * round(math.cos(self.radians), 15)
+        y = self._radio * round(math.sin(self.radians), 15)
         return Cartesian(x, y)
 
     def __eq__(self, other):
@@ -113,7 +112,7 @@ class Rect:
         :param p1: cartesian p1 coordinates
         :param p2: cartesian p2 coordinates
         """
-        if p1 == p2:
+        if p1.x == p2.x and p1.y == p2.y:
             raise SamePointException(p1)
 
         a = p1.y - p2.y
