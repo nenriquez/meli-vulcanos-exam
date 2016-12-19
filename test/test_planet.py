@@ -69,6 +69,6 @@ class ClockwisePlanetTest(unittest.TestCase):
         # to 360 days more or 180 degrees
         self.test_planet.grownup(360)
         current = self.test_planet.coor
-        expected = Polar(self.planet_radio, 180)
+        expected = Polar(self.planet_radio, -180)
         self.assertEqual(current, expected)
 
