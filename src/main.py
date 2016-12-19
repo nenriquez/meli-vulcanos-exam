@@ -1,4 +1,4 @@
-from model.planetary_system import PlanetarySystem, PlanetaryWeather
+from model.planetary_system import PlanetaryWeather
 from model.predictor import Predictor
 
 AGE_DAYS = 365
