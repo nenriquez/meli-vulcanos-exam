@@ -47,7 +47,7 @@ class Polar:
     def __init__(self, radio, angle):
         """
         :param radio (int): radio
-        :param angle (float): angle in degress
+        :param angle (float): angle in degrees
         """
         self._radio = radio
         self._angle = angle
@@ -57,19 +57,19 @@ class Polar:
         return self._angle * math.pi / HALF_RADIO
 
     @property
-    def degress(self):
+    def degrees(self):
         return self._angle
 
     @property
     def radio(self):
         return self._radio
 
-    """
-    Plus value to current angle.
-
-    :param value (int): angle in degress to rotate
-    """
     def plus_angle(self, value):
+        """
+        Plus value to current angle.
+
+        :param value: angle in degrees to rotate
+        """
         self._angle += value
 
         if self._angle > RADIO:
@@ -89,7 +89,7 @@ class Polar:
         return Cartesian(x, y)
 
     def __eq__(self, other):
-        return self.radio == other.radio and self.degress == other.degress
+        return self.radio == other.radio and self.degrees == other.degrees
 
 
 class Rect:

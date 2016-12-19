@@ -15,24 +15,24 @@ class AntiClockwisePlanetTest(unittest.TestCase):
         cart = coor.to_cartesian()
         self.assertEqual(cart.x, 100)
         self.assertEqual(cart.y, 0)
-        self.assertEqual(coor.degress, 0)
+        self.assertEqual(coor.degrees, 0)
         self.assertEqual(coor.radians, 0)
 
     def test_time_enlapsed(self):
-        # to 45 days or 45 degress or pi/4
+        # to 45 days or 45 degrees or pi/4
         self.test_planet.grownup(45)
         current = self.test_planet.coor
         expected = Polar(self.planet_radio, 45)
         self.assertEqual(current, expected)
 
 
-        # to 45 days more or 90 degress or pi/2
+        # to 45 days more or 90 degrees or pi/2
         self.test_planet.grownup(45)
         current = self.test_planet.coor
         expected = Polar(self.planet_radio, 90)
         self.assertEqual(current, expected)
 
-        # to 360 days more or 45 degress or pi/2
+        # to 360 days more or 45 degrees or pi/2
         self.test_planet.grownup(360)
         current = self.test_planet.coor
         expected = Polar(self.planet_radio, 90)
@@ -50,23 +50,23 @@ class ClockwisePlanetTest(unittest.TestCase):
         cart = coor.to_cartesian()
         self.assertEqual(cart.x, 200)
         self.assertEqual(cart.y, 0)
-        self.assertEqual(coor.degress, 0)
+        self.assertEqual(coor.degrees, 0)
         self.assertEqual(coor.radians, 0)
 
     def test_time_enlapsed(self):
-        # to 45 days or 270 degress
+        # to 45 days or 270 degrees
         self.test_planet.grownup(45)
         current = self.test_planet.coor
         expected = Polar(self.planet_radio, 270)
         self.assertEqual(current, expected)
 
-        # to 45 days more or 180 degress
+        # to 45 days more or 180 degrees
         self.test_planet.grownup(45)
         current = self.test_planet.coor
         expected = Polar(self.planet_radio, 180)
         self.assertEqual(current, expected)
 
-        # to 360 days more or 180 degress
+        # to 360 days more or 180 degrees
         self.test_planet.grownup(360)
         new_coords = self.test_planet.coor
         expected = Polar(self.planet_radio, 180)

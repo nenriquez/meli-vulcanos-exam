@@ -10,7 +10,7 @@ class CoordinatesTest(unittest.TestCase):
 
     def test_creation(self):
         polar = Polar(100, 90)
-        self.assertEqual(polar.degress, 90)
+        self.assertEqual(polar.degrees, 90)
         self.assertEqual(polar.radians, math.pi / 2)
 
     def test_eq(self):
@@ -22,19 +22,19 @@ class CoordinatesTest(unittest.TestCase):
         polar = Polar(100, 0)
 
         polar.plus_angle(45)
-        self.assertEqual(polar.degress, 45)
+        self.assertEqual(polar.degrees, 45)
         self.assertEqual(polar.radians, math.pi / 4)
         self.assertEqual(polar.to_cartesian().x, 100)
         self.assertEqual(polar.to_cartesian().y, 100)
 
         polar.plus_angle(45)
-        self.assertEqual(polar.degress, 90)
+        self.assertEqual(polar.degrees, 90)
         self.assertEqual(polar.radians, math.pi / 2)
         self.assertEqual(polar.to_cartesian().x, 0)
         self.assertEqual(polar.to_cartesian().y, 100)
 
         polar.plus_angle(360)
-        self.assertEqual(polar.degress, 90)
+        self.assertEqual(polar.degrees, 90)
         self.assertEqual(polar.radians, math.pi / 2)
         self.assertEqual(polar.to_cartesian().x, 0)
         self.assertEqual(polar.to_cartesian().y, 100)
@@ -43,19 +43,19 @@ class CoordinatesTest(unittest.TestCase):
         polar = Polar(100, 0)
 
         polar.plus_angle(-90)
-        self.assertEqual(polar.degress, 270)
+        self.assertEqual(polar.degrees, 270)
         self.assertEqual(polar.radians, math.pi * 3 / 2)
         self.assertEqual(polar.to_cartesian().x, 0)
         self.assertEqual(polar.to_cartesian().y, -100)
 
         polar.plus_angle(-90)
-        self.assertEqual(polar.degress, 180)
+        self.assertEqual(polar.degrees, 180)
         self.assertEqual(polar.radians, math.pi)
         self.assertEqual(polar.to_cartesian().x, -100)
         self.assertEqual(polar.to_cartesian().y, 0)
 
         polar.plus_angle(-360)
-        self.assertEqual(polar.degress, 180)
+        self.assertEqual(polar.degrees, 180)
         self.assertEqual(polar.radians, math.pi)
         self.assertEqual(polar.to_cartesian().x, -100)
         self.assertEqual(polar.to_cartesian().y, 0)
