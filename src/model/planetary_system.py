@@ -71,8 +71,8 @@ class PlanetarySystem:
         :return: true if there is alignment between all planets and the sun.
         """
         # if planets have the same angle then are alignment among them and the sun
-        # TODO: revisar pq esto no funciona:
         # p1, p2, p3 = self._get_planet_polars()
+        # TODO: revisar pq esto no funciona:
         # return (p1.radians == p2.radians or math.fabs(p1.radians - p2.radians) == math.pi) \
         #             and (p1.radians == p3.radians or math.fabs(p1.radians - p3.radians) == math.pi)
 
