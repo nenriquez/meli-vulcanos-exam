@@ -1,3 +1,5 @@
+import logging
+
 from google.appengine.ext import ndb
 
 from model.day_weather import DayWeather
@@ -6,7 +8,7 @@ from model.day_weather import DayWeather
 class DataStoreDayWeather(ndb.Model):
 
     day = ndb.IntegerProperty()
-    weather = ndb.StringProperty()
+    weather = ndb.IntegerProperty()
 
 
 class DayWeatherDao:
@@ -24,9 +26,13 @@ class DayWeatherDao:
             entity = DataStoreDayWeather()
             entity.day = d.day
             entity.weather = d.weather
+            entity.put()
 
-        ndb.put_multi(to_save)
+        logging.info("saving entities")
+
+        # TODO: revisar pq esto dejor de crear entidades
+        # ndb.put_multi(to_save)
 
     def get_by_day(self, day):
-        result = DayWeatherDao.query(DayWeatherDao.day == day)
+        result = DataStoreDayWeather.query(DataStoreDayWeather.day == day)
         return DayWeather(result.day, result.weather) if result else None

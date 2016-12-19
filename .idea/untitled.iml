@@ -4,7 +4,7 @@
     <facet type="google-appengine-python" name="Google App Engine (Python)">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="sdkFolder" value="$USER_HOME$/Dev/SDK/google_appengine" />
+        <option name="sdkFolder" value="$MODULE_DIR$/../../SDK/google_appengine" />
         <option name="templatesFolder" value="" />
         <option name="oauth2" value="false" />
         <option name="deployConfigured" value="false" />
@@ -20,7 +20,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
-    <orderEntry type="module" module-name="tulum" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Nosetests" />

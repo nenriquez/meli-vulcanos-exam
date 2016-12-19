@@ -1,3 +1,5 @@
+import logging
+
 from google.appengine.api import taskqueue
 
 from api.base_handler import BaseRequestHandler
@@ -14,6 +16,10 @@ class RunJobHandler(BaseRequestHandler):
 
     def get(self):
         # run job
+
+        logging.info("puting job in queue")
+
         taskqueue.add(url='/worker/generate_weather_data', method='POST',
                       queue_name='planetsqueue', params={'days': PREDICTION_PERIOD})
 
+        self.response.out.write('ok')
