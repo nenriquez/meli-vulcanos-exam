@@ -34,5 +34,5 @@ class DayWeatherDao:
         # ndb.put_multi(to_save)
 
     def get_by_day(self, day):
-        result = DataStoreDayWeather.query(DataStoreDayWeather.day == day)
+        result = DataStoreDayWeather.query(DataStoreDayWeather.day == day).get()
         return DayWeather(result.day, result.weather) if result else None

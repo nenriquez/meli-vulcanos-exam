@@ -2,7 +2,7 @@ import json
 
 from webapp2 import exc
 
-from api.api_utils import require_params
+from api.api_utils import require_params, get_int_from_param
 from api.base_handler import BaseRequestHandler
 from dao.day_weather_dao import DayWeatherDao
 
@@ -13,7 +13,7 @@ class WeatherHandler(BaseRequestHandler):
 
     @require_params(['dia'])
     def get(self):
-        day = self.request.get('dia')
+        day = get_int_from_param(self.request.get('dia'))
 
         day_weather = self.dao.get_by_day(day)
 
