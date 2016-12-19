@@ -54,7 +54,7 @@ class Polar:
 
     @property
     def radians(self):
-        return self._angle * math.pi / HALF_RADIO
+        return math.radians(self._angle)
 
     @property
     def degrees(self):
