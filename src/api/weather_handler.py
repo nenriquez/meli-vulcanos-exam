@@ -18,6 +18,6 @@ class WeatherHandler(BaseRequestHandler):
         day_weather = self.dao.get_by_day(day)
 
         if not day_weather:
-            raise exc.HTTPNotFound(detail="No day found: {}".format(day))
+            raise exc.HTTPNotFound(detail="Day not found: {}".format(day))
 
         self.response.out.write(json.dumps({"dia": day_weather.day, "clima": day_weather.weather_string}))
