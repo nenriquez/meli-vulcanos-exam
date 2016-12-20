@@ -1,5 +1,7 @@
 import unittest
 
+import math
+
 from exception.exceptions import VirtualMethodException
 from model.geometry import Polar
 from model.planetary_system import PlanetarySystem, PlanetaryWeather, CelestialBodies
@@ -53,9 +55,9 @@ class PlanetarySystemDroughtSeasonTest(BasePlanetarySystemTest):
 class PlanetarySystemOptSeasonTest(BasePlanetarySystemTest):
 
     def _modify_planet_positon(self):
-        CelestialBodies.FERENGI.coor = Polar(500, 45)
-        CelestialBodies.BETASOIDE.coor = Polar(1000, 0)
-        CelestialBodies.VULCANO.coor = Polar(1000, 90)
+        CelestialBodies.FERENGI.coor = Polar(2, 0)
+        CelestialBodies.BETASOIDE.coor = Polar(2, 90)
+        CelestialBodies.VULCANO.coor = Polar(math.sqrt(2), 45)
 
     def test_weather(self):
         self.assertEqual(self.system.get_today_weather(), PlanetaryWeather.OTP_SEASON)

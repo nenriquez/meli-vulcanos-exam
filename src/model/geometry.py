@@ -1,6 +1,7 @@
 import math
 
 from exception.exceptions import SamePointException
+from model.config import DECIMAL_PRECISION
 
 RADIO = 360
 HALF_RADIO = 180
@@ -83,8 +84,8 @@ class Polar:
 
     def to_cartesian(self):
         # precision problem, cos(pi/2) != 0
-        x = self._radio * round(math.cos(self.radians), 15)
-        y = self._radio * round(math.sin(self.radians), 15)
+        x = self._radio * round(math.cos(self.radians), DECIMAL_PRECISION)
+        y = self._radio * round(math.sin(self.radians), DECIMAL_PRECISION)
         return Cartesian(x, y)
 
     def __eq__(self, other):
@@ -127,7 +128,8 @@ class Rect:
             self.b = (-1) * c / b
 
     def contain(self, p):
-        return p.y == self.m * p.x + self.b
+        # i will fix precision to 10 decimals
+        return round(p.y, DECIMAL_PRECISION) == round(self.m * p.x + self.b, DECIMAL_PRECISION)
 
     def __eq__(self, other):
         return self.m == other.m and self.b == other.b
